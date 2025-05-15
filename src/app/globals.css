@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 94.1%; /* #F0F0F0 Light gray */
+    --foreground: 0 0% 40%;   /* #666666 Darker gray for text */
+
+    --muted: 0 0% 85%; 
+    --muted-foreground: 0 0% 45.1%; 
+
+    --popover: 0 0% 100%; 
+    --popover-foreground: 0 0% 20%;
+
+    --card: 0 0% 100%; 
+    --card-foreground: 0 0% 20%; 
+
+    --border: 0 0% 87%; 
+    --input: 0 0% 90%;  
+
+    --primary: 180 100% 25.1%; /* Teal #008080 */
+    --primary-foreground: 0 0% 100%; /* White for text on Teal */
+
+    --secondary: 0 0% 88%; 
+    --secondary-foreground: 0 0% 20%; 
+
+    --accent: 200 58.8% 79.2%; /* Soft Blue #ADD8E6 */
+    --accent-foreground: 180 100% 15.1%; /* Dark Teal for contrast on Soft Blue */
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --ring: 200 58.8% 69.2%; /* Slightly darker Soft Blue for focus rings */
+    --radius: 0.5rem;
+
+    /* Sidebar specific colors (used by sidebar component if ever used) */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 0 0% 25%;
+    --sidebar-primary: 180 100% 25.1%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 200 58.8% 85%;
+    --sidebar-accent-foreground: 180 100% 20.1%;
+    --sidebar-border: 0 0% 85%;
+    --sidebar-ring: 200 58.8% 69.2%;
+
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+  }
+
+  .dark {
+    --background: 220 10% 10%; 
+    --foreground: 0 0% 85%;   
+
+    --muted: 220 10% 15%;
+    --muted-foreground: 0 0% 60%;
+
+    --popover: 220 10% 8%;
+    --popover-foreground: 0 0% 85%;
+
+    --card: 220 10% 8%;
+    --card-foreground: 0 0% 85%;
+
+    --border: 220 10% 20%;
+    --input: 220 10% 20%;
+
+    --primary: 180 100% 35%; /* Brighter Teal for dark mode */
+    --primary-foreground: 0 0% 100%; 
+
+    --secondary: 220 10% 18%;
+    --secondary-foreground: 0 0% 90%;
+
+    --accent: 200 50% 55%; /* Muted Soft Blue for dark mode */
+    --accent-foreground: 0 0% 100%; 
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 98%;
+
+    --ring: 200 50% 45%; 
+
+    /* Sidebar specific colors for dark mode */
+    --sidebar-background: 220 10% 12%;
+    --sidebar-foreground: 0 0% 80%;
+    --sidebar-primary: 180 100% 35%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 200 50% 50%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 220 10% 20%;
+    --sidebar-ring: 200 50% 45%;
+    
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    /* font-family removed as it's handled by next/font in layout.tsx */
+  }
+}
