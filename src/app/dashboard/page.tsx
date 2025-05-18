@@ -17,18 +17,16 @@ import { format } from 'date-fns';
 import { useToast } from '@/hooks/use-toast';
 import { useRouter } from 'next/navigation';
 
-
 export default function DashboardPage() {
   const { user, loading: authLoading } = useAuth();
   const [myWebinars, setMyWebinars] = useState<Webinar[]>([]);
-  const [joinedWebinars, setJoinedWebinars] = useState<Webinar[]>([]); // Placeholder for future
   const [isLoading, setIsLoading] = useState(true);
   const { toast } = useToast();
   const router = useRouter();
 
   useEffect(() => {
     if (!user) {
-      if(!authLoading) setIsLoading(false);
+      if (!authLoading) setIsLoading(false);
       return;
     }
 
@@ -63,7 +61,7 @@ export default function DashboardPage() {
         isMuted: false,
         isVideoOff: false,
         handRaised: false,
-      }, { merge: true }); // Merge true to not overwrite if already a participant (e.g. host)
+      }, { merge: true });
       router.push(`/webinar/${webinarId}`);
     } catch (error) {
       console.error("Error joining webinar: ", error);
@@ -75,8 +73,8 @@ export default function DashboardPage() {
     return (
       <div className="space-y-8">
         <div className="flex justify-between items-center">
-          <h1 className="text-3xl font-bold tracking-tight text-primary">My Webinars</h1>
-           <Button disabled className="bg-primary hover:bg-primary/90 text-primary-foreground">
+          <h1 className="text-4xl font-extrabold tracking-tight text-primary">My Webinars</h1>
+          <Button disabled className="bg-primary hover:bg-primary/90 text-primary-foreground">
             <Icons.PlusCircle className="mr-2 h-5 w-5" /> Create Webinar
           </Button>
         </div>
@@ -103,7 +101,7 @@ export default function DashboardPage() {
   return (
     <div className="space-y-8">
       <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-        <h1 className="text-3xl font-bold tracking-tight text-primary">My Webinars</h1>
+        <h1 className="text-4xl font-extrabold tracking-tight text-primary">My Webinars</h1>
         <CreateWebinarDialog />
       </div>
 
@@ -111,7 +109,7 @@ export default function DashboardPage() {
         <Card className="text-center py-12 shadow-lg">
           <CardHeader>
             <Icons.Video className="mx-auto h-16 w-16 text-muted-foreground mb-4" />
-            <CardTitle className="text-2xl">No Webinars Yet</CardTitle>
+            <CardTitle className="text-2xl font-semibold">No Webinars Yet</CardTitle>
           </CardHeader>
           <CardContent>
             <CardDescription className="mb-6">
@@ -141,7 +139,6 @@ export default function DashboardPage() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                {/* Placeholder for more details if needed */}
                 <p className="text-sm text-muted-foreground">Host: You</p>
               </CardContent>
               <CardFooter>
@@ -155,15 +152,6 @@ export default function DashboardPage() {
           ))}
         </div>
       )}
-
-      {/* Placeholder for "Joined Webinars" section - to be implemented if needed */}
-      {/* 
-      <h2 className="text-2xl font-bold tracking-tight text-primary mt-12">Joined Webinars</h2>
-      {joinedWebinars.length === 0 && (
-        <p className="text-muted-foreground">You haven't joined any webinars yet.</p>
-      )}
-      // ... list joined webinars ...
-      */}
     </div>
   );
 }
